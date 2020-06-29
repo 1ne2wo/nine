@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <!--<script href="js/bootstrap.min.js"></script>-->
+    <script >
+        var per = [];
+        var _table = document.getElementById("table");
+        function delete1(s) {
+            s.parentNode.parentNode.parentNode.removeChild(s.parentNode.parentNode)
+
+        }
+        function changevalue(t) {
+            t.value = '已完成'
+
+            }
+        function addtask() {
+            var newtr = table.insertRow();
+            var newtd0 = newtr.insertCell();
+            var newtd1 = newtr.insertCell();
+            var newtd2 = newtr.insertCell();
+            var newtd3 = newtr.insertCell();
+            var newtd4 = newtr.insertCell();
+            var newtd5 = newtr.insertCell();
+            newtd0.innerText = per.length +1;
+            per.unshift(1);
+            newtd1.innerText = document.getElementById('task').value;
+            var now = new Date();
+            newtd2.innerText = now.toLocaleString();
+
+            var inbtn = '<input   class="btn btn-default" type="submit" value="未完成" onclick="changevalue(this)">';
+            newtd3.innerHTML = inbtn;
+            var section = document.getElementById('section').value;
+            newtd4.innerText = section;
+            var delbtn = '<input class ="btn btn-default" type="submit" value="删除" onclick="delete1(this)">';
+            newtd5.innerHTML = delbtn;
+
+
+
+
+        }
+
+    </script>
+</head>
+<body>
+
+
+  <div style="width: 300px" class="form-group">
+    <input id="task" type="text" class="form-control"  placeholder="请输入任务内容">
+
+    <select id="section" class="form-control" style="width: 100px">
+  <option>工作</option>
+  <option>生活</option>
+  <option>娱乐</option>
+</select>
+
+<input class="btn btn-default" type="submit" value="添加任务" onclick="addtask()">
+</div>
+
+
+<table class="table table-bordered" id="table">
+    <tbody id="tbody">
+        <tr>
+          <td>编码</td>
+          <td>任务内容</td>
+          <td>创建时间</td>
+          <td>状态</td>
+          <td>主题</td>
+          <td>删除</td>
+         </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>
